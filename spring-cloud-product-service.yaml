@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://admin:passw0rd@localhost:27017/spring-cloud-product-service?authSource=admin
