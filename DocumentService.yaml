@@ -1,2 +1,122 @@
-pramot:
-  test: Sereesuksan
+spring:
+  main:
+    allow-circular-references: 'true'
+  jpa:
+    properties:
+      hibernate:
+        generate_statistics: 'false'
+        show_sql: 'false'
+  jmx:
+    default-domain: ${app.context.domain}
+  jackson:
+    default-property-inclusion: NON_NULL
+app:
+  task:
+    code:
+      customerConfirm: TSC0015
+      disbursement: TSC0018
+      cancelled: TSC0021
+      loanBookingFail: TSC0017
+      appeal: TSC0023
+      dataEntry: TSC0005
+      ncb: TSC0004
+      additionalInfo: TSC0003
+      reject: TSC0020
+      messenger: TSC0002
+      incomeVerify: TSC0011
+      creditAnalyze: TSC0014
+      disbursementFail: TSC0024
+      attachment: TSC0022
+      additionalVerify: TSC0013
+      approved: TSC0019
+      createLoanAndDisbursement: TSC0016
+      followup: TSC0001
+      employmentVerify: TSC0012
+  appStatus:
+    code:
+      dataChecker: ASC0003
+      inactiveList: ASC0011,ASC0014,ASC0015,ASC0016
+      customerConfirm: ASC0007
+      appeal: ASC0017
+      loanBookingFail: ASC0009
+      reject: ASC0014
+      dataCapture: ASC0002
+      empty: ASC0000
+      cancel: ASC0015
+      dataAdditionalInfo: ASC0005
+      partnerUpdateList: ASC0000,ASC0001
+      dataVerify: ASC0004
+      DisbursedFail: ASC0012
+      followup: ASC0001
+      loanBookingCompleted: ASC0010
+      approved: ASC0013
+      booking: ASC0008
+      disbursed: ASC0011
+      cancelCustomerConfirm: ASC0016
+      creditDecision: ASC0006
+  state:
+    code:
+      forward: STC018
+      appeal: STC017
+      endPending: STC013
+      confirm: STC016
+      returnToSale: STC014
+      any: STC000
+      fail: STC010
+      pending: STC004
+      complete: STC003
+      return: STC011
+      claimFromReturn: STC015
+      claim: STC012
+      cancel: STC009
+      reject: STC008
+      processing: STC002
+  channel:
+    allow:
+      list: TMN,RIB
+  mobile:
+    partnerId: RIBMobile
+  customer:
+    disclosure:
+      questionCode:
+        businessOperationCountry: DISCLOSE_2
+        pep: DISCLOSE_5
+        beneficiary: DISCLOSE_6
+        sourceOfFund: DISCLOSE_1
+        offense: DISCLOSE_4
+        assetRetrained: DISCLOSE_3
+  context:
+    domain: DocumentService
+  swagger:
+    license: ''
+    enable: 'true'
+    version: 0.0.1-SNAPSHOT
+    description: API for NAOS
+    title: NAOS Document Service
+    termsOfServiceUrl: ''
+    licenseUrl: ''
+    contact:
+      email: ''
+      url: ''
+      name: ''
+  config:
+    messageBasenames: classpath:messages
+    messages:
+      cacheMillis: '-1'
+  authen:
+    userref:
+      customer: Customer Self Service
+springdoc:
+  swagger-ui:
+    enabled: 'true'
+    url: /NAOS/${app.context.domain}/v3/api-docs
+    config-url: /NAOS/${app.context.domain}/v3/api-docs/swagger-config
+    disable-swagger-default-url: 'true'
+  api-docs:
+    path: /v3/api-docs
+    enabled: 'true'
+swagger:
+  context: /NAOS/${app.context.domain}
+server:
+  servlet:
+    context-path: /NAOS/${app.context.domain}
